@@ -14,3 +14,15 @@
 
 % Add Font Awesome
 \RequirePackage{fontawesome}
+
+\newcommand*{\email}[1] {
+  \def\@email{{\small\faEnvelope}~#1}
+}
+
+\newcommand*{\homepage}[1] {
+  \def\@homepage{{\small\faGlobe}~#1}
+}
+
+\newcommand*{\github}[1] {
+  \def\@github{{\small\faGithub}~#1}
+}
