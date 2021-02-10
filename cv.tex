@@ -1,135 +1,73 @@
-\documentclass[12pt]{article}
-\usepackage{array}
+\documentclass[11pt,a4paper,sans]{moderncv} % 10pt, 11pt, 12pt
+
+\moderncvstyle{classic}
+\moderncvcolor{green}
+\nopagenumbers{}
+
+\usepackage{fontawesome}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{hyperref}
-\usepackage{geometry}
-%\usepackage{tabto}
-%\usepackage{tabularx}
-%\usepackage{ragged2e}
+%\usepackage[scale=0.77]{geometry}
+\usepackage[scale=0.8]{geometry}
+\recomputelengths
 
-\geometry{
-  a4paper,
-  margin=20mm,
-}
-%\geometry{
-%  a4paper,
-%  total={170mm,257mm},
-%  left=20mm,
-%  top=20mm,
-%}
+\renewcommand*{\mobilephonesymbol}  {{\small\faMobile}~}
+\renewcommand*{\emailsymbol}        {{\small\faEnvelope}~}
+\renewcommand*{\homepagesymbol}     {{\small\faGlobe}~}
+\renewcommand*{\githubsocialsymbol} {{\small\faGithub}~}
 
-\usepackage{titling}
-\renewcommand{\maketitle}{
-\begin{flushleft}
-\huge\bfseries
-\theauthor \hfill \thetitle
-\normalsize\mdseries
-\end{flushleft}
-}
+\name{Mateja}{Mari\'c}
+\email{mail@matejamaric.com}
+\homepage{matejamaric.com}
+\social[github]{MatejaMaric}
 
-\usepackage{titlesec}
-
-\titleformat{\section}
-{\Large\bfseries\uppercase}
-{}
-{0em}
-{}[\titlerule]
-
-\titleformat{\subsection}[runin]
-{\large\bfseries}
-{}
-{0em}
-{}
-
-\titlespacing{\subsection}{0em}{0.25em}{1.25em}
-
-\setlength{\tabcolsep}{12pt}
-\renewcommand{\arraystretch}{1.4}
-
-\pagenumbering{gobble}
-
-
-\title{CV}
-\author{Mateja Mari\'c}
 \begin{document}
-\maketitle
-\vspace{0.1em}
-
-\section{Personal data}
-\begin{tabular}{ @{} l l }
-\large\textbf{Born}       & \normalsize xxxxxxxxxxxxxxxx, Belgrade, Serbia\\
-\large\textbf{Languages}  & \normalsize Serbian (native), English (fluent)\\
-\large\textbf{Blog}       & \normalsize \url{https://matejamaric.com/blog/}\\
-\large\textbf{Git}        & \normalsize \url{https://git.matejamaric.com/}\\
-\large\textbf{Email}      & \normalsize \url{mail@matejamaric.com}\\
-\large\textbf{Phone}      & \normalsize xxxxxxxxxxxxxxxx
-\end{tabular}
-
+\makecvtitle
 \section{Education}
-\begin{tabular}{ @{} p{3in} l l }
-Electrical Engineering High School 
+\cventry{2019--Present}{Bachelor of Applied Science}{School of Electrical and Computer Engineering of Applied Studies}
+{Belgrade - Serbia}{\textit{New Computer Technologies}}{} 
+\cventry{2015--2019}{Computer Electrotechnician}{Electrical Engineering High School ``Nikola Tesla''}{\mbox{Belgrade} - Serbia}{}{} 
 
-``Nikola Tesla'', Belgrade              & \url{http://teslabg.edu.rs}  & 2015 - 2019\\
-School of Electrical and Computer 
+\section{Languages}
+\cvitemwithcomment{Serbian}{Native}{}
+\cvitemwithcomment{English}{Fluent}{}
 
-Engineering of Applied Studies, Belgrade & \url{https://viser.edu.rs}   & 2019 - Present
-\end{tabular}
+\section{Skills}
+\cvitem{Advance}{HTML5, CSS3, JavaScript, PHP (Laravel), SQL (MariaDB), Git, GNU/Linux, C/C++}
+\cvitem{Intermediate}{Bash Scripting, Python, RegEx, \LaTeX}
+\cvitem{Used}{Vue.js, Java, C\#, OpenBSD, x86\_64 ASM, Scheme (Lisp)}
 
-\section{Projects}
-\subsection{Serbian YOTA website}
-\hfill\url{https://yota.yu1srs.org.rs}\\
+\section{Experience}
+\subsection{Web Development}
+\cventry{}{Serbian YOTA Website}{}{}{\url{https://yota.yu1srs.org.rs}}{
 Website I made for Serbian section of international youth amateur radio organization ``Youngsters On The Air'' (\url{https://www.ham-yota.com/}). 
 Made primarily to handle frequency reservations and special call signs management, 
 but it also has simple news and gallery management.
 It's made with the help of Laravel, MariaDB, jQuery and Bootstrap. 
 You can take a look at source code on: \url{https://git.matejamaric.com/yota-laravel}
-\\
-\subsection{3D render}
-\hfill\url{https://git.matejamaric.com/erender}\\
-Barycentric 3D render that I made back when I was interested in computer graphics. 
-It's written entirely from scratch in C++ using SFML library for screen buffer, making it cross-platform.
-It implements OBJ loader, Z-buffering, translation, transformation, rotation and projection matrix.
-\\
-\subsection{Mail server}
-\hfill\\%\url{https://mail.matejamaric.com}\\
-I host my very own mail server that serves my domain.
-You can send me an email at \url{mail@matejamaric.com},
-just whitelist my domain to be sure my mail doesn't end up in your spam folder.
-It runs OpenSMTPD, Dovecot and Rspamd.
+}
+
+\subsection{GNU/Linux Administration}
+\cventry{}{Mail Server}{}{}{}{
+I host my very own mail server that serves my domain. It runs OpenSMTPD, Dovecot and Rspamd.
 I host it on an unmanaged Virtual Private Server with full root and VNC access, where I configured everything from ground up.
 It is the project I am most proud of, given all the technicalities that go into it and time I had to allocate for them.
 I plan on switching to Postfix instead of OpenSMTPD and adding MariaDB to manage virtual users and domains, effectively making it enterprise-grade.
-\\
+}
 
-\pagebreak
-
-\subsection{Git server}
-\hfill\url{https://git.matejamaric.com}\\
+\cventry{}{Git Server}{}{}{\url{https://git.matejamaric.com}}{
 I have a git server that I use for my public and private repositories. It runs Gitolite and serves public repositories with Cgit, 
 git-http-backend and Apache.\\
 I also have a blog post about it: \url{https://matejamaric.com/blog/git-server/}
-\\
-\subsection{Embedded Linux distribution}
-\hfill\url{https://git.matejamaric.com/distro}\\
-I wanted to make my own Linux From Scratch distribution, but as I was working on it, I didn't like the design choices and explanations.
-So I started working on my own mini distribution, it uses GRUB and BusyBox. 
-GRUB loads the kernel and initramfs that boot straight into shell, just like most distributions when they can't mount root partition.
-I plan to continue working on it, to actually make it useful. 
-\\
-\subsection{First stage x86 bootloader}
-\hfill\url{https://git.matejamaric.com/bootloader}\\
-Primitive bootloader that I made back when I was interested in operating system development. 
-It was a very educational experience learning about legacy things that go into x86 architecture and 
-the fact that processors have quite a lot of bugs.
+}
 
-\section{Technical skills}
-\begin{tabular}{ @{} p{0.2\linewidth} p{0.7\linewidth} }
-\large\textbf{Advance}       & \normalsize C/C++, GNU/Linux, HTML5\\
-\large\textbf{Intermediate}  & \normalsize CSS3, JavaScript, PHP, Laravel, SQL, Git, RegEx, Bash Scripting, Python, Java, C\#\\
-\large\textbf{Beginner}      & \normalsize Vue.js, \LaTeX, OpenBSD, x86\_64 ASM, Scheme (Lisp)
-\end{tabular}
+\subsection{3D Graphics Programming}
+\cventry{}{3D Software Render}{}{}{\url{https://github.com/MatejaMaric/erender}}{
+Barycentric 3D render that I made back when I was interested in computer graphics. 
+It's written entirely from scratch in C++ using SFML library for screen buffer, making it cross-platform.
+It implements OBJ loader, Z-buffering, translation, transformation, rotation and projection matrix.
+}
+%\cventry{}{}{}{}{}{}
 
-\section{Interests}
-Unix-like operating systems, Free (as in freedom) software, Web technologies, Networking, Minimalist software
+%\clearpage
+%\section{Other Projects}
 \end{document}
