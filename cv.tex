@@ -1,35 +1,35 @@
-\documentclass[11pt,a4paper,sans]{moderncv} % 10pt, 11pt, 12pt
+\documentclass{myCV_Class}
 
-\moderncvstyle{classic}
-\moderncvcolor{green}
-\nopagenumbers{}
-
-\usepackage{fontawesome}
-\usepackage[utf8]{inputenc}
-%\usepackage[scale=0.77]{geometry}
-\usepackage[scale=0.8]{geometry}
-\recomputelengths
-
-\renewcommand*{\mobilephonesymbol}  {{\small\faMobile}~}
-\renewcommand*{\emailsymbol}        {{\small\faEnvelope}~}
-\renewcommand*{\homepagesymbol}     {{\small\faGlobe}~}
-\renewcommand*{\githubsocialsymbol} {{\small\faGithub}~}
-
-\name{Mateja}{Mari\'c}
+\author{Mateja Mari\'c}
 \email{mail@matejamaric.com}
 \homepage{matejamaric.com}
-\social[github]{MatejaMaric}
+\github{MatejaMaric}
 
 \begin{document}
+
 \makecvtitle
+
 \section{Education}
-\cventry{2019--Present}{Bachelor of Applied Science}{School of Electrical and Computer Engineering of Applied Studies}
-{Belgrade - Serbia}{\textit{New Computer Technologies}}{} 
-\cventry{2015--2019}{Computer Electrotechnician}{Electrical Engineering High School ``Nikola Tesla''}{\mbox{Belgrade} - Serbia}{}{} 
+
+\cvedu
+{2019--Present}
+{Bachelor of Applied Science}
+{School of Electrical and Computer Engineering of Applied Studies}
+{https://viser.edu.rs} 
+{Belgrade - Serbia}
+{\textit{New Computer Technologies}}
+
+\cvedu
+{2015--2019}
+{Computer Electrotechnician}
+{Electrical Engineering High School ``Nikola Tesla''}
+{http://teslabg.edu.rs}
+{Belgrade - Serbia}
+{} 
 
 \section{Languages}
-\cvitemwithcomment{Serbian}{Native}{}
-\cvitemwithcomment{English}{Fluent}{}
+\cvitem{Serbian}{Native}
+\cvitem{English}{Fluent}
 
 \section{Skills}
 \cvitem{Advance}{HTML5, CSS3, JavaScript, PHP (Laravel), SQL (MariaDB), Git, GNU/Linux, C/C++}
@@ -37,8 +37,10 @@
 \cvitem{Used}{Vue.js, Java, C\#, OpenBSD, x86\_64 ASM, Scheme (Lisp)}
 
 \section{Experience}
+%\cvjob{}{}{}{}{}{}
+
 \subsection{Web Development}
-\cventry{}{Serbian YOTA Website}{}{}{\url{https://yota.yu1srs.org.rs}}{
+\cvproject{Serbian YOTA Website}{\url{https://yota.yu1srs.org.rs}}{
 Website I made for Serbian section of international youth amateur radio organization ``Youngsters On The Air'' (\url{https://www.ham-yota.com/}). 
 Made primarily to handle frequency reservations and special call signs management, 
 but it also has simple news and gallery management.
@@ -47,27 +49,24 @@ You can take a look at source code on: \url{https://git.matejamaric.com/yota-lar
 }
 
 \subsection{GNU/Linux Administration}
-\cventry{}{Mail Server}{}{}{}{
+\cvproject{Mail Server}{}{
 I host my very own mail server that serves my domain. It runs OpenSMTPD, Dovecot and Rspamd.
 I host it on an unmanaged Virtual Private Server with full root and VNC access, where I configured everything from ground up.
 It is the project I am most proud of, given all the technicalities that go into it and time I had to allocate for them.
 I plan on switching to Postfix instead of OpenSMTPD and adding MariaDB to manage virtual users and domains, effectively making it enterprise-grade.
 }
 
-\cventry{}{Git Server}{}{}{\url{https://git.matejamaric.com}}{
+\cvproject{Git Server}{\url{https://git.matejamaric.com}}{
 I have a git server that I use for my public and private repositories. It runs Gitolite and serves public repositories with Cgit, 
 git-http-backend and Apache.\\
 I also have a blog post about it: \url{https://matejamaric.com/blog/git-server/}
 }
 
 \subsection{3D Graphics Programming}
-\cventry{}{3D Software Render}{}{}{\url{https://github.com/MatejaMaric/erender}}{
+\cvproject{3D Software Render}{\url{https://github.com/MatejaMaric/erender}}{
 Barycentric 3D render that I made back when I was interested in computer graphics. 
 It's written entirely from scratch in C++ using SFML library for screen buffer, making it cross-platform.
 It implements OBJ loader, Z-buffering, translation, transformation, rotation and projection matrix.
 }
-%\cventry{}{}{}{}{}{}
 
-%\clearpage
-%\section{Other Projects}
 \end{document}
