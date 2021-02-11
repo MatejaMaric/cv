@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{myCV_Class}
+\ProvidesClass{mcv}
 
 \LoadClass[a4paper,10pt]{article}
 
