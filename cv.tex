@@ -1,72 +1,161 @@
-\documentclass{mcv}
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
 
-\author{Mateja Mari\'c}
-\email{mail@matejamaric.com}
-\homepage{matejamaric.com}
-\github{MatejaMaric}
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Lato}
+\else
+  % If using pdflatex:
+  \usepackage[default]{lato}
+\fi
+
+\definecolor{NiceBlue}{HTML}{61a8ff}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{heading}{NiceBlue}
+\colorlet{headingrule}{NiceBlue}
+\colorlet{subheading}{NiceBlue}
+\colorlet{accent}{NiceBlue}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% My additional commands. %%
+\NewInfoField{githubinfo}{\faGithub}[https://]
+\newcommand{\myGithubUsername}{MatejaMaric}
+\newcommand{\cvproject}[3]{
+  {\large\color{emphasis}#1\par}
+  \smallskip\normalsize
+  \ifstrequal{#2}{}{}{{\small\makebox[0.5\linewidth][l]{\faGlobe~\href{https://#2}{#2}}}}
+  \ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][l]{\faGithub~\href{https://github.com/\myGithubUsername/#3}{#3}}}}\par
+  \medskip\normalsize
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-
-\makecvtitle
-
-\section{Education}
-
-\cvedu
-{2019--Present}
-{Bachelor of Applied Science}
-{School of Electrical and Computer Engineering of Applied Studies}
-{https://viser.edu.rs} 
-{Belgrade - Serbia}
-{\textit{New Computer Technologies}}
-
-\cvedu
-{2015--2019}
-{Computer Electrotechnician}
-{Electrical Engineering High School ``Nikola Tesla''}
-{http://teslabg.edu.rs}
-{Belgrade - Serbia}
-{} 
-
-\section{Languages}
-\cvitem{Serbian}{Native}
-\cvitem{English}{Fluent}
-
-\section{Skills}
-\cvitem{Advance}{HTML5, CSS3, JavaScript, PHP (Laravel), SQL (MariaDB), Git, GNU/Linux, C/C++}
-\cvitem{Intermediate}{Bash Scripting, Python, RegEx, \LaTeX}
-\cvitem{Used}{Vue.js, Java, C\#, OpenBSD, x86\_64 ASM, Scheme (Lisp)}
-
-\section{Experience}
-%\cvjob{}{}{}{}{}{}
-
-\subsection{Web Development}
-\cvproject{Serbian YOTA Website}{\url{https://yota.yu1srs.org.rs}}{
-Website I made for Serbian section of international youth amateur radio organization ``Youngsters On The Air'' (\url{https://www.ham-yota.com/}). 
-Made primarily to handle frequency reservations and special call signs management, 
-but it also has simple news and gallery management.
-It's made with the help of Laravel, MariaDB, jQuery and Bootstrap. 
-You can take a look at source code on: \url{https://git.matejamaric.com/yota-laravel}
+\name{Mateja Mari\'c}
+\tagline{}
+\personalinfo{
+  \location{Belgrade, Serbia}
+  \homepage{matejamaric.com}
+  \email{mail@matejamaric.com}
+  \githubinfo{github.com/\myGithubUsername}
+  %\linkedin{}
+  %\phone{+000 00 000 0000}
 }
 
-\subsection{GNU/Linux Administration}
-\cvproject{Mail Server}{}{
-I host my very own mail server that serves my domain. It runs OpenSMTPD, Dovecot and Rspamd.
-I host it on an unmanaged Virtual Private Server with full root and VNC access, where I configured everything from ground up.
-It is the project I am most proud of, given all the technicalities that go into it and time I had to allocate for them.
-I plan on switching to Postfix instead of OpenSMTPD and adding MariaDB to manage virtual users and domains, effectively making it enterprise-grade.
-}
+\makecvheader
 
-\cvproject{Git Server}{\url{https://git.matejamaric.com}}{
-I have a git server that I use for my public and private repositories. It runs Gitolite and serves public repositories with Cgit, 
-git-http-backend and Apache.\\
-I also have a blog post about it: \url{https://matejamaric.com/blog/git-server/}
-}
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+\AtBeginEnvironment{itemize}{\small}
 
-\subsection{3D Graphics Programming}
-\cvproject{3D Software Render}{\url{https://github.com/MatejaMaric/erender}}{
-Barycentric 3D render that I made back when I was interested in computer graphics. 
-It's written entirely from scratch in C++ using SFML library for screen buffer, making it cross-platform.
-It implements OBJ loader, Z-buffering, translation, transformation, rotation and projection matrix.
-}
+
+\cvsection{Experience}
+
+\cvsubsection{Web Development}
+
+\cvproject{Serbian YOTA Website}{yota.yu1srs.org.rs}{yota-laravel}
+
+\begin{itemize}
+\item Website I made for Serbian section of international youth amateur radio organization ``Youngsters On The Air'' (\href{https://www.ham-yota.com/}{www.ham-yota.com}). 
+\item Made primarily to handle frequency reservations and special call signs management, but it also has simple news and gallery management system.
+\item It's made with the help of Laravel, Vue.js, MariaDB and Bootstrap. 
+\end{itemize}
+
+\divider
+
+\cvsubsection{GNU/Linux Administration}
+
+\cvproject{Mail Server}{}{}
+
+\begin{itemize}
+\item I host my very own mail server that serves my domain. It runs OpenSMTPD, Dovecot and Rspamd.
+\item Hosted on an unmanaged Virtual Private Server with full root and VNC access, where I configured everything from ground up.
+\end{itemize}
+
+\medskip
+
+\cvproject{Git Server}{git.matejamaric.com}{}
+
+\begin{itemize}
+\item I have a git server that I use for my public and private repositories. It runs Gitolite and serves public repositories with Cgit, git-http-backend and Apache.
+\item I have a blog post about it: \url{https://matejamaric.com/blog/git-server/}
+\end{itemize}
+
+\divider
+
+\cvsubsection{Graphics Programming}
+
+\cvproject{3D Software Render}{}{erender}
+
+\begin{itemize}
+\item Barycentric 3D render that I made back when I was interested in computer graphics. 
+\item Written entirely from scratch in C++ using SFML library for screen buffer, making it cross-platform.
+\item Implements OBJ loader, Z-buffering, translation, transformation, rotation and projection matrix.
+\end{itemize}
+
+
+\cvsection{Technologies}
+
+\cvsubsection{Project Experience}
+\cvtag{HTML5}
+\cvtag{CSS3}
+\cvtag{JavaScript (Vue.js \& Vuex)}
+\cvtag{PHP (Laravel)}
+\cvtag{SQL (MariaDB)}
+\cvtag{Git}
+\cvtag{GNU/Linux}
+\cvtag{C/C++}
+
+\divider
+
+\cvsubsection{Occasionally using}
+\cvtag{Bash Scripting}
+\cvtag{Python}
+\cvtag{RegEx}
+\cvtag{\LaTeX}
+
+\divider
+
+\cvsubsection{Previously used}
+\cvtag{Java}
+\cvtag{C\#}
+\cvtag{OpenBSD}
+\cvtag{x86\_64 ASM}
+\cvtag{Scheme (Lisp)}
+
+\smallskip
+
+
+\cvsection{Languages}
+
+\begin{itemize}
+  \item \textbf{Serbian (native)}
+  \item \textbf{English (fluent)}
+\end{itemize}
+
+
+\cvsection{Education}
+
+\cvevent{B.A.Sc in New Computer Technologies}{School of Electrical and Computer Engineering of Applied Studies}{2019 -- Present}{Belgrade, Serbia}
+
+\divider
+
+\cvevent{Computer Electrotechnician}{Electrical Engineering High School ``Nikola Tesla''}{2015 -- 2019}{Belgrade, Serbia}
+
+
+\cvsection{Interests}
+
+\cvtag{Unix-like operating systems}
+\cvtag{Free (as in freedom) software}
+\cvtag{Web development}
+\cvtag{Web technologies}
+
+\cvtag{Networking}
+\cvtag{Minimalist software}
 
 \end{document}
