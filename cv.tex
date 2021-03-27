@@ -11,9 +11,9 @@
   \usepackage[default]{lato}
 \fi
 
-\definecolor{NiceBlue}{HTML}{61a8ff}
-\definecolor{SlateGrey}{HTML}{2E2E2E}
-\definecolor{LightGrey}{HTML}{666666}
+\definecolor{NiceBlue}{HTML}{0472c3}
+\definecolor{SlateGrey}{HTML}{202020}
+\definecolor{LightGrey}{HTML}{333333}
 \colorlet{heading}{NiceBlue}
 \colorlet{headingrule}{NiceBlue}
 \colorlet{subheading}{NiceBlue}
@@ -33,6 +33,10 @@
   \ifstrequal{#2}{}{}{{\small\makebox[0.5\linewidth][l]{\faGlobe~\href{https://#2}{#2}}}}
   \ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][l]{\faGithub~\href{https://github.com/\myGithubUsername/#3}{#3}}}}\par
   \medskip\normalsize
+}
+\renewcommand{\divider}{\textcolor{body!60}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}\medskip}
+\renewcommand{\cvtag}[1]{
+  \tikz[baseline]\node[anchor=base,draw=body!60,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -63,7 +67,7 @@
 \begin{itemize}
 \item Website I made for Serbian section of international youth amateur radio organization ``Youngsters On The Air'' (\href{https://www.ham-yota.com/}{www.ham-yota.com}). 
 \item Made primarily to handle frequency reservations and special call signs management, but it also has simple news and gallery management system.
-\item It's made with the help of Laravel, Vue.js, MariaDB and Bootstrap. 
+\item It's made using Laravel, Vue.js, MariaDB and Bootstrap.
 \end{itemize}
 
 \divider
@@ -110,7 +114,6 @@
 \cvtag{Git}
 \cvtag{GNU/Linux}
 \cvtag{C/C++}
-
 \divider
 
 \cvsubsection{Occasionally using}
