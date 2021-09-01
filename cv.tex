@@ -1,5 +1,6 @@
 \documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
 \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+\usepackage{paracol}
 
 % Change the font if you want to, depending on whether
 % you're using pdflatex or xelatex/lualatex
@@ -14,6 +15,7 @@
 \definecolor{NiceBlue}{HTML}{0472c3}
 \definecolor{SlateGrey}{HTML}{202020}
 \definecolor{LightGrey}{HTML}{333333}
+\colorlet{tagline}{NiceBlue}
 \colorlet{heading}{NiceBlue}
 \colorlet{headingrule}{NiceBlue}
 \colorlet{subheading}{NiceBlue}
@@ -42,7 +44,7 @@
 
 \begin{document}
 \name{Mateja Mari\'c}
-\tagline{}
+\tagline{Junior Backend Developer}
 \personalinfo{
   \location{Belgrade, Serbia}
   \homepage{matejamaric.com}
@@ -115,38 +117,28 @@
 
 \cvsection{Technologies}
 
-\cvsubsection{Languages: }
-\cvtag{HTML5}
-\cvtag{CSS3}
-\cvtag{JavaScript}
-\cvtag{PHP}
-\cvtag{SQL}
-\cvtag{C/C++}
-\cvtag{Java}
-\cvtag{C\#}
-\cvtag{Python}
-\cvtag{Bash}
-\cvtag{x86\_64 ASM}
+\begin{paracol}{3}
 
-\smallskip
-\cvsubsection{Frameworks: }
-\cvtag{Vue.js}
-\cvtag{Express.js}
-\cvtag{Laravel}
+  \cvskill{HTML5}{5}
+  \cvskill{PHP}{3}
+  \cvskill{Vue.js}{3}
+  \cvskill{Git}{4}
 
-\smallskip
-\cvsubsection{Databases: }
-\cvtag{MariaDB}
-\cvtag{MongoDB}
+  \switchcolumn{}
 
-\smallskip
-\cvsubsection{Other: }
-\cvtag{Git}
-\cvtag{GNU/Linux}
-\cvtag{Docker}
-\cvtag{RegEx}
-\cvtag{\LaTeX}
-\cvtag{OpenBSD}
+  \cvskill{CSS3}{3}
+  \cvskill{MariaDB}{4}
+  \cvskill{Express.js}{4}
+  \cvskill{Docker}{3}
+
+  \switchcolumn{}
+
+  \cvskill{JavaScript}{5}
+  \cvskill{MongoDB}{2}
+  \cvskill{Laravel}{3}
+  \cvskill{GNU/Linux}{5}
+
+\end{paracol}
 
 
 \cvsection{Education}
