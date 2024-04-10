@@ -10,7 +10,7 @@
       drv = {stdenv, texliveFull, ...}: stdenv.mkDerivation {
         name = pkgName;
         src = ./.;
-        buildInputs = [ texliveFull ];
+        nativeBuildInputs = [ texliveFull ];
         buildPhase = ''
           pdflatex cv.tex
         '';
